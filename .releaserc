@@ -3,7 +3,21 @@
     "main"
   ],
   "plugins": [
-    "@semantic-release/commit-analyzer",
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "parserOpts": {
+          "headerPattern": "(\\[\\w+-\\d+\\])(\\(\\w+\\))?:\\s?(\\w.*)",
+          "headerCorrespondence": ["ticket", "type", "subject"]
+        },
+        "releaseRules": [
+          { "type": "feat", "release": "minor" },
+          { "type": "fix", "release": "patch" },
+          { "type": "chore", "release": "patch" },
+          { "type": null, "release": "patch" }
+        ]
+      }
+    ],
     "@semantic-release/release-notes-generator",
     "@semantic-release/github"
   ]
