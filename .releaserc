@@ -18,7 +18,20 @@
         ]
       }
     ],
-    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "preset": "conventionalcommits",
+        "presetConfig": {
+          "issuePrefixes": ["[", "PROJ-"],
+          "issueUrlFormat": "https://your-company.atlassian.net/browse/{{id}}"
+        },
+        "parserOpts": {
+          "headerPattern": "(\\[\\w+-\\d+\\])\\((\\w+)\\)?:\\s?(\\w.*)",
+          "headerCorrespondence": ["ticket", "type", "subject"]
+        }
+      }
+    ],
     "@semantic-release/github"
   ]
 }
