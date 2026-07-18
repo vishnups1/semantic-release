@@ -7,7 +7,7 @@
       "@semantic-release/commit-analyzer",
       {
         "parserOpts": {
-          "headerPattern": "(\\[\\w+-\\d+\\])(\\(\\w+\\))?:\\s?(\\w.*)",
+          "headerPattern": "(\\[\\w+-\\d+\\])\\((\\w+)\\)?:\\s?(\\w.*)",
           "headerCorrespondence": ["ticket", "type", "subject"]
         },
         "releaseRules": [
